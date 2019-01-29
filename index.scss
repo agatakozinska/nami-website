@@ -1,0 +1,48 @@
+@import "node_modules/bootstrap-4-grid/scss/grid";
+@import "./src/fonts.scss";
+@import "./src/variables.scss";
+@import "./src/style.scss";
+
+
+
+html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+ul, li {
+  text-decoration: none;
+  list-style:none;
+}
+
+a, a:visited {
+  list-style-type: unset;
+  text-decoration: unset;
+  color: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+html.no-scroll {
+  overflow-y: hidden;
+}
+
+body {
+  font-family: $font-content;
+  font-size: $font-size-xs;
+  color: $white;
+  line-height: 28px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.row {
+  position: relative;
+}
