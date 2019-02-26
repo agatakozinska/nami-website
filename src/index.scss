@@ -1,19 +1,23 @@
 @import "node_modules/bootstrap-4-grid/scss/grid";
-@import "./src/fonts.scss";
-@import "./src/variables.scss";
-@import "./src/style.scss";
+@import "./variables.scss";
 
-
-
-html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
-	margin: 0;
-	padding: 0;
-	border: 0;
+h1 {
+    font-family: $font-title;
+    font-size: $font-size-md;
+    color: $red;
+    text-align: center;
 }
+
+// html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
+// 	margin: 0;
+// 	padding: 0;
+// 	border: 0;
+// }
 
 ul, li {
   text-decoration: none;
   list-style:none;
+  outline-color: transparent;
 }
 
 a, a:visited {
