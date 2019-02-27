@@ -1,6 +1,10 @@
 .header {
   color: $black;
-  text-align: center;
+
+  &__wrapper {
+    padding-top: 7rem;
+    text-align: center;
+  }
 
   &__logo {
     width: 60%;
@@ -19,79 +23,93 @@
     line-height: 1.2;
     padding-bottom: 2rem;
   }
-}
 
-.header__menu {
-  display: none; 
-}
-
-
-.header__slider {
-  position: relative;
-  height: 22rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    @include circle(22rem);
+  &__slider {
+    position: relative;
+    height: 22rem;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include circle(22rem);
+    }
+  }
+  
+  &__image {
+    max-width: 22rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 0;
   }
 }
 
-.swiper__image {
-  height: 100%;
+
+
+.header__menu {
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  height: 5rem;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
-  padding: 10px 0;
-}
-
-
-.header__menu {
-  position: relative;
-  width: 100%;
-  height: 2.0rem;
-}
-
-//MENU BUTTON
-.hamburger__button {
-  cursor: pointer;
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin: 1.2rem 1rem 0 0;
-}
-
-.hamburger__bar {
-  height: .4rem;
-  width: 3.5rem;
+  padding: 5px 20px;
   background-color: $white;
-  position: absolute;
-  left: -2px;
-  top: 0;
+  // background-color: $black;
+}
 
-  &--1 {
-    top: .5rem;
-  }
+.header__menu.scroll {
+  box-shadow: 0 0 15px -5px rgba(37,40,42,.15);
+}
 
-  &--2 {
-    top: 1.5rem;
-  }
+.nav {
+  height: 60%;
+  transform: translateX(100%);
 
-  &--3 {
-    top: 2.4rem;
+  &__list {
+    display: none;
+    height: 100%;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }
 
-.hamburger__button--close {
-  height: 3rem;
-  width: 3rem;
+
+.header__menu.nav--visible {
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: $black;
+  color: $white;
+  font-size: $font-size-xs;
+  font-family: $font-subtitle; 
+  text-transform: uppercase;
+  flex-direction: column;
+
+  .menu__logo {
+    display: none;
+  }
+
+  .nav {
+    transition: transform .2s ease-in-out;
+    transform: translateX(0);
+
+    &__list {
+      display: flex;
+  }
+}
 
   .hamburger__bar {
+    background-color: $white;
     transition: all 0.2s ease-in-out;
 
     &--1 {
@@ -105,6 +123,61 @@
     &--3 {
       transform: translateY(-10px) rotate(-45deg);
     }
+  }
+}
+
+.menu__logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 4rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    @include circle(4rem);
+  }
+
+  & >img {
+    height: 40%;
+  }
+}
+
+//MENU BUTTON
+.hamburger__button {
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  margin: 0 0 0 auto;
+}
+
+.hamburger__bar {
+  display: block;
+  position: absolute;
+  height: .4rem;
+  width: 100%;
+  background-color: $black;
+
+  left: -2px;
+  top: 0;
+
+  &--1 {
+    top: .5rem;
+  }
+
+  &--2 {
+    top: 1.5rem;
+  }
+
+  &--3 {
+    top: 2.4rem;
   }
 }
 //
