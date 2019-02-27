@@ -11,11 +11,11 @@
   <% if (htmlWebpackPlugin.options.description) { %>
   <meta name="description" content="<%= htmlWebpackPlugin.options.description %>" />
   <% } %>
-  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat|Playfair+Display|Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script: 400|Montserrat: 400|Playfair+Display: 400|Raleway: 400" rel="stylesheet " type="text/css">
 </head>
 
 <body>
-  <%= require('html-loader!./src/components/nm-header.html') %>
+  <%= require('html-loader!./src/components/nm-header/nm-header.html') %>
 </body>
 
 </html>

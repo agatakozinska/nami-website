@@ -1,18 +1,38 @@
 @import "node_modules/bootstrap-4-grid/scss/grid";
 @import "./variables.scss";
+@import "./mixins.scss";
+@import "./components/nm-header/nm-header.scss";
 
-h1 {
-    font-family: $font-title;
-    font-size: $font-size-md;
-    color: $red;
-    text-align: center;
-}
 
 // html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
 // 	margin: 0;
 // 	padding: 0;
 // 	border: 0;
 // }
+* {
+  box-sizing: border-box;
+}
+
+
+// html, body {
+//   height: 100%;
+// }
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+html.no-scroll {
+  overflow-y: hidden;
+}
+
+body {
+  font-family: $font-content;
+  font-size: 16px; //fallback
+  font-size: $font-size-xs;
+  color: $white;
+  line-height: 28px;
+}
 
 ul, li {
   text-decoration: none;
@@ -20,33 +40,22 @@ ul, li {
   outline-color: transparent;
 }
 
-a, a:visited {
+a, a:hover,
+a:active,
+a:visited,
+a:link {
   list-style-type: unset;
   text-decoration: unset;
+  outline-color: transparent;
   color: inherit;
-}
-
-html, body {
-  height: 100%;
-}
-html {
-  scroll-behavior: smooth;
-}
-html.no-scroll {
-  overflow-y: hidden;
-}
-
-body {
-  font-family: $font-content;
-  font-size: $font-size-xs;
-  color: $white;
-  line-height: 28px;
 }
 
 img {
   max-width: 100%;
+  align-self: center;
 }
 
 .row {
   position: relative;
 }
+
