@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const button = document.querySelector('.hamburger__button');
-  const navVisible = 'nav--visible';
+  const navVisible = 'menu--open';
 
   button.addEventListener('click', () => {
     menu.classList.toggle(navVisible);

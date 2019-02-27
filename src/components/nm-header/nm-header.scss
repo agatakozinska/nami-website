@@ -27,7 +27,7 @@
   &__slider {
     position: relative;
     height: 22rem;
-  
+
     &::before {
       content: '';
       position: absolute;
@@ -38,7 +38,7 @@
       @include circle(22rem);
     }
   }
-  
+
   &__image {
     max-width: 22rem;
     height: 100%;
@@ -63,52 +63,88 @@
   padding: 5px 20px;
   background-color: $white;
   // background-color: $black;
+  transition: all .2s ease-in-out;
+  will-change: auto;
 }
 
 .header__menu.scroll {
-  box-shadow: 0 0 15px -5px rgba(37,40,42,.15);
+  box-shadow: 0 0 15px -5px rgba(37, 40, 42, .15);
 }
 
 .nav {
-  height: 60%;
-  transform: translateX(100%);
-
-  &__list {
-    display: none;
-    height: 100%;
-    padding: 0;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-}
-
-
-.header__menu.nav--visible {
-  z-index: 100;
-  width: 100%;
-  height: 100%;
-  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background-color: $black;
   color: $white;
   font-size: $font-size-xs;
-  font-family: $font-subtitle; 
+  font-family: $font-subtitle;
   text-transform: uppercase;
-  flex-direction: column;
+  height: 100%;
+  transform: translateX(100%);
+
+  &__list {
+    display: flex;
+    height: 60%;
+    padding: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__item {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+.header__menu.menu--open {
+  padding: 10px 20px;
 
   .menu__logo {
     display: none;
   }
 
   .nav {
-    transition: transform .2s ease-in-out;
+    transition: all .2s ease-in-out;
     transform: translateX(0);
+   
 
-    &__list {
-      display: flex;
+    &__item {
+      transition: all .2s ease-in-out;
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    &__item:nth-child(1) {
+      transition-delay: .4s;
+    }
+
+    &__item:nth-child(2) {
+      transition-delay: .5s;
+    }
+
+    &__item:nth-child(3) {
+      transition-delay: .6s;
+    }
+
+    &__item:nth-child(4) {
+      transition-delay: .7s;
+    }
+
+    &__item:nth-child(5) {
+      transition-delay: .8s;
+    }
+
   }
-}
 
   .hamburger__bar {
+    position: absolute;
+    z-index: 30;
     background-color: $white;
     transition: all 0.2s ease-in-out;
 
@@ -144,7 +180,7 @@
     @include circle(4rem);
   }
 
-  & >img {
+  &>img {
     height: 40%;
   }
 }
@@ -161,7 +197,7 @@
 .hamburger__bar {
   display: block;
   position: absolute;
-  height: .4rem;
+  height: .3rem;
   width: 100%;
   background-color: $black;
 
@@ -180,4 +216,5 @@
     top: 2.4rem;
   }
 }
+
 //
