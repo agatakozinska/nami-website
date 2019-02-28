@@ -1,15 +1,16 @@
 .section-aboutus {
   width: 100%;
-  padding: 0 0 3rem 0;
+  padding: 0 0 4rem 0;
   background-color: $gray;
-  z-index: -999;
+  margin-top: 6rem;
 }
 
 .aboutus__wrapper-text {
+  margin-top: -6rem; //look at the section margin
   display: flex;
   flex-direction: column;
   background-color: $black;
-  padding-bottom: 13rem;
+  padding: 0 2.5rem 13rem 2.5rem;
   
 
   > h2, h3 {
@@ -23,7 +24,6 @@
   line-height: 1.5;
 
   &--highlighted {
-    // background-color: $red;
     border-bottom: 1px solid $red;
   }
 }
@@ -35,7 +35,9 @@
 
   > div {
     position: relative;
-    z-index: 999;
+    z-index: 30;
+    max-width: 30rem;
+    margin: 0 auto;
 
     &::before, &::after {
       content: '';
@@ -56,5 +58,14 @@
       right: -0.5rem;
     }
   }
+}
 
+.aboutus__text-value {
+  font-size: $font-size-md;
+  opacity: 0.25;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 40;
+  bottom: -1.5rem;
+  left: 30%;
 }
