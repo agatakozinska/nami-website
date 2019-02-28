@@ -3,6 +3,8 @@
 @import "./mixins.scss";
 @import "./components/nm-header/nm-header.scss";
 @import "./components/nm-aboutus/nm-aboutus.scss";
+@import "./components/nm-menu/nm-menu.scss";
+
 
 
 // html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
@@ -33,6 +35,7 @@ body {
   font-size: 1.2rem;
   color: $white;
   line-height: 28px;
+  overflow-x: hidden;
 }
 
 ul, li {

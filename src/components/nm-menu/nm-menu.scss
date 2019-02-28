@@ -1,0 +1,35 @@
+.section-menu {
+  padding: 7rem 0 10rem 0;
+}
+.menu__header {
+  position: relative;
+
+  &-heading {
+    position: relative;
+    width: 16rem;
+    height: 16rem;
+    margin: -5rem 0 0 auto;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: -4.7rem;
+      @include circle(16rem);
+    }
+  }
+
+  &-image{
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    transform: rotate(-15deg);
+  }
+}
