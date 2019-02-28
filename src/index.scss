@@ -2,6 +2,7 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 @import "./components/nm-header/nm-header.scss";
+@import "./components/nm-aboutus/nm-aboutus.scss";
 
 
 // html, body,h1, h2, h3, h4, h5, h6, p, ul, a, figure, figcaption, footer, header, menu, nav {
@@ -28,8 +29,8 @@ html.no-scroll {
 
 body {
   font-family: $font-content;
-  font-size: 16px; //fallback
-  font-size: $font-size-xs;
+  font-size: 12px; //fallback
+  font-size: 1.2rem;
   color: $white;
   line-height: 28px;
 }
@@ -59,3 +60,47 @@ img {
   position: relative;
 }
 
+.section__title {
+  font-family: $font-title;
+  font-weight: 400;
+  color: $white;
+  font-size: $font-size-md;
+  order: 1;
+  margin: -1rem 0 2rem 0;
+
+  &--red {
+    color: $red;
+  }
+}
+
+.section__subtitle {
+  font-family: $font-subtitle;
+  font-weight: 400;
+  color: $black;
+  font-size: $font-size-sm /2 ;
+  text-transform: uppercase;
+  order: 0;
+
+  &--white {
+    color: $white;
+  }
+}
+
+.text-value {
+  font-family: $font-handwriting;
+  color: $black;
+}
+
+@include media-breakpoint-up(lg) {
+  .section__title {
+    font-size: $font-size-xl;
+  }
+  
+  .section__subtitle {
+    font-size: $font-size-lg /2;
+  }
+  
+  .text-value {
+    font-size: $font-size-xl;
+  }
+}

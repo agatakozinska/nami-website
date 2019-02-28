@@ -1,0 +1,60 @@
+.section-aboutus {
+  width: 100%;
+  padding: 0 0 3rem 0;
+  background-color: $gray;
+  z-index: -999;
+}
+
+.aboutus__wrapper-text {
+  display: flex;
+  flex-direction: column;
+  background-color: $black;
+  padding-bottom: 13rem;
+  
+
+  > h2, h3 {
+    text-align: right;
+    padding: 0 5px;
+  }
+}
+
+.aboutus__content {
+  order: 2;
+  line-height: 1.5;
+
+  &--highlighted {
+    // background-color: $red;
+    border-bottom: 1px solid $red;
+  }
+}
+
+.aboutus__image {
+  position: relative;
+  margin-top: -10.2rem;
+  line-height: 0;
+
+  > div {
+    position: relative;
+    z-index: 999;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 45%;
+      height: 45%;
+      background-color: $red;
+    }
+
+    &::before {
+      top: -0.5rem;
+      left: -0.5rem;
+    }
+
+    &::after {
+      bottom: -0.5rem;
+      right: -0.5rem;
+    }
+  }
+
+}

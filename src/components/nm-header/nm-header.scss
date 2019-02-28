@@ -12,6 +12,7 @@
 
   &__title {
     font-family: $font-handwriting;
+    font-weight: 400;
     font-size: $font-size-xs * 2;
     line-height: 1.2;
     margin: 0;
@@ -139,7 +140,6 @@
     &__item:nth-child(5) {
       transition-delay: .8s;
     }
-
   }
 
   .hamburger__bar {
