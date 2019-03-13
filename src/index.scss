@@ -19,10 +19,13 @@
 
 // html, body {
 //   height: 100%;
+//   max-width: 100%;
 // }
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 html.no-scroll {
@@ -36,6 +39,7 @@ body {
   color: $white;
   line-height: 28px;
   overflow-x: hidden;
+  height: 100%;
 }
 
 ul, li {
@@ -95,6 +99,10 @@ img {
 }
 
 @include media-breakpoint-up(lg) {
+  html {
+    overflow-x: unset;
+  }
+
   .section__title {
     font-size: $font-size-xl;
   }

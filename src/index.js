@@ -1,6 +1,7 @@
 require('normalize.css/normalize.css');
 import './index.scss';
-
+import Swiper from 'swiper';
+import "swiper/dist/css/swiper.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -9,6 +10,29 @@ AOS.init({
   duration: 800,
   easing: 'ease-in-sine',
   delay: 500,
+});
+
+const mySwiper = new Swiper(".swiper-container", {
+  loop: true,
+  // direction: 'vertical',
+  grabCursor: true,
+  speed: 1000,
+  autoplay: false,
+  effect: "slide",
+  mousewheelControl: 1,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  // breakpoints: {
+  //   576: {
+  //     direction: 'horizontal',
+  //   }
+  // }
 });
 
 document.addEventListener("DOMContentLoaded", () => {

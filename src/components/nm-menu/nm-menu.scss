@@ -1,6 +1,7 @@
 .section-menu {
   padding: 7rem 0 10rem 0;
 }
+
 .menu__header {
   position: relative;
 
@@ -14,6 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    margin-bottom: 15%;
 
     &::before {
       content: '';
@@ -31,5 +33,99 @@
     top: 0;
     left: 0;
     transform: rotate(-15deg);
+  }
+}
+
+#menu-swiper {
+  width: 100%;
+  height: 100%;
+  max-height: 50rem;
+  position: relative;
+  
+}
+
+.swiper-container {
+  height: 100%;
+  width: 100%;
+  padding-left: 16.33333% !important;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.swiper-image-one {
+  background-image: url(assets/img/shabushabu.jpg);
+}
+
+.swiper-image-two {
+  background-image: url(assets/img/ramen.jpg);
+}
+
+.swiper-image-three {
+  background-image: url(assets/img/set.jpg);
+}
+
+.swiper-image-four {
+  background-image: url(assets/img/sushi.jpg);
+}
+
+.swiper-image-five {
+  background-image: url(assets/img/mochi.jpg);
+}
+
+.swiper__content {
+  width: 80%;
+  height: 100%;
+}
+
+.swiper__image {
+  width: 0;
+  height: 100%;
+
+}
+
+.swiper-slide--left {
+  transition: all 1s linear;
+  transition-delay: 1s;
+}
+
+.swiper-slide--right {
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 1s linear;
+  transition-delay: 1s;
+  background-color: hsla(0, 0%, 0%, 0.2);
+  background-blend-mode: multiply;
+}
+
+.swiper-pagination.swiper-pagination-bullets {
+  position: absolute;
+  top: 10%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50%;
+ 
+}
+
+@include media-breakpoint-up(md) { 
+  .swiper__content {
+    width: 45%;
+    padding: 0 20px;
+  }
+  .swiper__image {
+    width: 55%;
   }
 }
