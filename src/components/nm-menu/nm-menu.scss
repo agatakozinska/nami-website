@@ -27,7 +27,7 @@
     }
   }
 
-  &-image{
+  &-image {
     position: absolute;
     z-index: -2;
     top: 0;
@@ -41,7 +41,7 @@
   height: 100%;
   max-height: 50rem;
   position: relative;
-  
+
 }
 
 .swiper-container {
@@ -49,9 +49,11 @@
   width: 100%;
   padding-left: 16.33333% !important;
   color: black;
+  line-height: 2rem;
   margin-left: auto;
   margin-right: auto;
 }
+
 .swiper-slide {
   display: flex;
   align-items: center;
@@ -59,23 +61,23 @@
 }
 
 .swiper-image-one {
-  background-image: url(assets/img/shabushabu.jpg);
+  background-image: url('assets/img/shabushabu.jpg');
 }
 
 .swiper-image-two {
-  background-image: url(assets/img/ramen.jpg);
+  background-image: url('assets/img/ramen.jpg');
 }
 
 .swiper-image-three {
-  background-image: url(assets/img/set.jpg);
+  background-image: url('assets/img/set.jpg');
 }
 
 .swiper-image-four {
-  background-image: url(assets/img/sushi.jpg);
+  background-image: url('assets/img/sushi.jpg');
 }
 
 .swiper-image-five {
-  background-image: url(assets/img/mochi.jpg);
+  background-image: url('assets/img/mochi.jpg');
 }
 
 .swiper__content {
@@ -86,7 +88,12 @@
 .swiper__image {
   width: 0;
   height: 100%;
+  position: fixed;
+  transition: all 0.5s ease-in-out;
+}
 
+.swiper__image.active {
+  width: 100%
 }
 
 .swiper-slide--left {
@@ -111,20 +118,72 @@
 
 .swiper-pagination.swiper-pagination-bullets {
   position: absolute;
-  top: 10%;
+  top: 6%;
   left: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 50%;
- 
+  height: 60%;
+
 }
 
-@include media-breakpoint-up(md) { 
+.swiper-pagination-bullet {
+  position: relative;
+  background: transparent;
+  width: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    top: -10px;
+    left: -20px;
+  }
+}
+
+.swiper-pagination-bullet:nth-child(1)::before {
+  background-image: url('assets/svg/hot-pot.svg');
+}
+
+.swiper-pagination-bullet:nth-child(2)::before {
+  background-image: url('assets/svg/noodles.svg');
+}
+
+.swiper-pagination-bullet:nth-child(3)::before {
+  background-image: url('assets/svg/rice-bowl.svg');
+}
+
+.swiper-pagination-bullet:nth-child(4)::before {
+  background-image: url('assets/svg/sushi.svg');
+}
+
+.swiper-pagination-bullet:nth-child(5)::before {
+  background-image: url('assets/svg/satay.svg');
+}
+
+.swipper__button {
+  background-color: $red;
+  color: $white;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 18px;
+  line-height: 12px;
+  width: 11.5rem;
+  text-align: center;
+  padding: 13px 14px;
+}
+
+@include media-breakpoint-up(md) {
   .swiper__content {
     width: 45%;
     padding: 0 20px;
   }
+
   .swiper__image {
     width: 55%;
   }

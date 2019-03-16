@@ -1,9 +1,10 @@
 require('normalize.css/normalize.css');
-import './index.scss';
+
 import Swiper from 'swiper';
 import "swiper/dist/css/swiper.min.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import './index.scss';
 
 AOS.init({
   offset: 10,
@@ -27,13 +28,21 @@ const mySwiper = new Swiper(".swiper-container", {
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
-  },
-  // breakpoints: {
-  //   576: {
-  //     direction: 'horizontal',
-  //   }
-  // }
+  }
 });
+
+const swipperButton = document.querySelector('.swipper__button');
+
+swipperButton.addEventListener('click', () => {
+  const slides = document.querySelectorAll('.swiper-slide');
+  slides.forEach(slide => {
+    const activeSlide = slide.classList.contains('swiper-slide-active');
+    if(activeSlide) {
+      slide.children[1].classList.add('active');
+    }
+  })
+})
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const menu = document.querySelector('.header__menu');
