@@ -31,34 +31,34 @@ const mySwiper = new Swiper(".swiper-container", {
   }
 });
 
-const swipperButton = document.querySelector('.swipper__button');
-
-swipperButton.addEventListener('click', () => {
-  const slides = document.querySelectorAll('.swiper-slide');
-  slides.forEach(slide => {
-    const activeSlide = slide.classList.contains('swiper-slide-active');
-    if(activeSlide) {
-      slide.children[1].classList.add('active');
-    }
-  })
-})
-
-
 document.addEventListener("DOMContentLoaded", () => {
+
+  const swipperButton = document.querySelector('.swipper__button');
+
+  swipperButton.addEventListener('click', () => {
+    const slides = document.querySelectorAll('.swiper-slide');
+    const pagination = document.querySelector('.swiper-pagination');
+
+    slides.forEach(slide => {
+      const activeSlide = slide.classList.contains('swiper-slide-active');
+      const imageSlide = slide.children[1];
+      
+      if(activeSlide) {
+        imageSlide.classList.add('active');
+        pagination.classList.add('hidden');
+      };
+
+      mySwiper.on('slideChange', () => {
+        const activeInnerSlide = imageSlide.classList.contains('active');
+        if (activeInnerSlide) {
+          imageSlide.classList.remove('active');
+          pagination.classList.remove('hidden');
+        }
+      });
+    })
+  })
+
   const menu = document.querySelector('.header__menu');
-
-  window.addEventListener('scroll', () => {
-    const menuHeight = menu.offsetHeight;
-    const pageHeight = window.scrollY;
-
-    if (pageHeight > menuHeight) {
-      menu.classList.add('scroll');
-    } else {
-      menu.classList.remove('scroll');
-    }
-  });
-
-
   const button = document.querySelector('.hamburger__button');
   const navVisible = 'menu--open';
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  const links = document.querySelectorAll('.nav__list__item');
+  const links = document.querySelectorAll('.nav__item');
   const linksArray = [...links];
 
   for (let i = 0; i < linksArray.length; i++) {
