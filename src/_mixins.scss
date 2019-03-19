@@ -4,3 +4,26 @@
   border-radius: $width/2;
   background-color: $red;
 }
+
+@mixin flex($params: null) {
+  display: flex;
+  $justify-content: null;
+  $align-items: null;
+
+  @each $value in $params {
+    @if $value=="column" {
+      flex-direction: column;
+    }
+
+    @else if index(flex-start center flex-end, $value) {
+      @if $justify-content {
+        $align-items: $value;
+      }
+      @else {
+        $justify-content: $value;
+      }
+    }
+  }
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

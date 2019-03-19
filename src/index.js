@@ -34,16 +34,20 @@ const mySwiper = new Swiper(".swiper-container", {
 document.addEventListener("DOMContentLoaded", () => {
 
   const swipperButton = document.querySelector('.swipper__button');
+  const swiperMenuButton = document.querySelector('.hamburger__button-menu');
+
 
   swipperButton.addEventListener('click', () => {
     const slides = document.querySelectorAll('.swiper-slide');
     const pagination = document.querySelector('.swiper-pagination');
+    swiperMenuButton.style.display = 'block';
+
 
     slides.forEach(slide => {
       const activeSlide = slide.classList.contains('swiper-slide-active');
       const imageSlide = slide.children[1];
-      
-      if(activeSlide) {
+
+      if (activeSlide) {
         imageSlide.classList.add('active');
         pagination.classList.add('hidden');
       };
@@ -55,14 +59,20 @@ document.addEventListener("DOMContentLoaded", () => {
           pagination.classList.remove('hidden');
         }
       });
+
+      swiperMenuButton.addEventListener('click', () => {
+        imageSlide.classList.remove('active');
+        pagination.classList.remove('hidden');
+        swiperMenuButton.style.display = 'none';
+      });
     })
   })
 
   const menu = document.querySelector('.header__menu');
-  const button = document.querySelector('.hamburger__button');
+  const navButton = document.querySelector('.hamburger__button');
   const navVisible = 'menu--open';
 
-  button.addEventListener('click', () => {
+  navButton.addEventListener('click', () => {
     menu.classList.toggle(navVisible);
     stopScroll();
   });

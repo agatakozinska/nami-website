@@ -6,15 +6,12 @@
   position: relative;
 
   &-heading {
+    @include flex(column center flex-end);
     position: relative;
     width: 16rem;
     height: 16rem;
     margin: -5rem 0 0 auto;
-    padding: .5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    padding: .5rem;  
     margin-bottom: 15%;
 
     &::before {
@@ -37,18 +34,17 @@
 }
 
 #menu-swiper {
+  @include flex(column);
+  align-items: center;
+  position: relative;
   width: 100%;
   height: 100%;
-  max-height: 46rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-height: 50rem;
 }
 
 .swiper-container {
   height: 100%;
-  min-height: 36rem;
+  min-height: 42rem;
   width: 100%;
   padding-left: 16.33333%;
   margin: 0 auto;
@@ -60,15 +56,28 @@
   display: flex;
   align-items: center;
   width: 100%;
+
+  &--left {
+    transition: all 1s linear;
+    transition-delay: 1s;
+  }
+  
+  &--right {
+    @include flex(column center);
+    font-family: 'Montserrat', serif;
+    color: white;
+    background-size: cover;
+    background-position: 50% 25%;
+    width: 100%;
+    height: 100%;
+    transition: all 1s linear;
+    transition-delay: 1s;
+  }
 }
 
 .swiper__content {
   width: 80%;
   height: 100%;
-}
-
-.swiper__wrapper-ingredients {
-  display: none;
 }
 
 .swiper__image {
@@ -77,6 +86,54 @@
   height: 100%;
   position: fixed;
   transition: all 0.5s ease-in-out;
+
+  &--one {
+    background-image: url('assets/img/shabushabu.jpg');
+  }
+  
+  &--two {
+    background-image: url('assets/img/ramen.jpg');
+  }
+  
+  &--three {
+    background-image: url('assets/img/set.jpg');
+  }
+  
+  &--four {
+    background-image: url('assets/img/sushi.jpg');
+  }
+  
+  &--five {
+    background-image: url('assets/img/mochi.jpg');
+  }
+}
+
+.hamburger__button-menu {
+  position: absolute;
+  right: 2px;
+  width: 2rem;
+  
+  .hamburger__bar {
+    position: absolute;
+    z-index: 30;
+    background-color: $white;
+
+    &-menu--1 {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    &-menu--2 {
+      opacity: 0;
+    }
+
+    &-menu--3 {
+      transform: translateY(10px) rotate(-45deg);
+    }
+  }
+}
+
+.swiper__wrapper-ingredients, .hamburger__button-menu {
+  display: none;
 }
 
 .swiper__image.active {
@@ -94,58 +151,46 @@
   }
 }
 
-.swiper-slide--left {
-  transition: all 1s linear;
-  transition-delay: 1s;
-}
+.swiper__title {
+  position: relative;
+  display: inline;
+  font-family: 'Playfair Display';
+  font-weight: 400;
+  font-size: $font-size-xs *2;
+  margin-left: 5px;
 
-.swiper-slide--right {
-  font-family: 'Montserrat', serif;
-  color: white;
-  background-size: cover;
-  background-position: 50% 25%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  transition: all 1s linear;
-  transition-delay: 1s;
-}
-
-.swiper-image-one {
-  background-image: url('assets/img/shabushabu.jpg');
-}
-
-.swiper-image-two {
-  background-image: url('assets/img/ramen.jpg');
-}
-
-.swiper-image-three {
-  background-image: url('assets/img/set.jpg');
-}
-
-.swiper-image-four {
-  background-image: url('assets/img/sushi.jpg');
-}
-
-.swiper-image-five {
-  background-image: url('assets/img/mochi.jpg');
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: -5px;
+    background-color: $gray;
+    width: 110%;
+    height: 40%;
+  }
 }
 
 .swiper__subtitle {
   position: relative;
+  font-family: 'Playfair Display';
+  font-size: $font-size-sm;
+  padding-left: 5rem;
+  margin: 2rem 0 0 0;
+  font-weight: 400;
 
   &::before {
     content: '';
     position: absolute;
+    top: -5px;
+    left: 10px;
     background-size: 20px 20px;
     background-color: $red;
     background-position: center, center;
     background-repeat: no-repeat;
-    width:30px;
-    height: 30px;
-    border-radius: 50%
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
   }
 }
 
@@ -162,19 +207,23 @@
   background-image: url('assets/svg/carrot.svg');
 }
 
+.swiper__list {
+  font-family: 'Montserrat';
+  padding-left: 5.4rem;
+}
+
 .swiper__item {
   display: flex;
   justify-content: space-between;
-  width: 95%;
+  width: 90%;
 }
 
 .swiper-pagination.swiper-pagination-bullets {
+  @include flex(column);
+  justify-content: space-evenly;
   position: absolute;
   top: 6%;
   left: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   height: 60%;
 }
 
@@ -221,16 +270,24 @@
 .swipper__button {
   background-color: $red;
   color: $white;
-  font-size: 12px;
+  font-size: $font-size-xs;
   font-weight: 600;
   letter-spacing: 0.7px;
   text-transform: uppercase;
   border: 0;
   border-radius: 18px;
-  line-height: 12px;
+  line-height: 1;
   width: 11.5rem;
   text-align: center;
   padding: 13px 14px;
+  margin-top: 1rem;
+}
+
+
+@include media-breakpoint-up(sm) {
+  .swiper-container {
+    margin-top: 4.5rem;
+  }
 }
 
 @include media-breakpoint-up(md) {
