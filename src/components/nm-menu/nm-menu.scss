@@ -1,5 +1,5 @@
 .section-menu {
-  padding: 7rem 0 10rem 0;
+  padding: 7rem 0 3rem 0;
 }
 
 .menu__header {
@@ -219,8 +219,7 @@
 }
 
 .swiper-pagination.swiper-pagination-bullets {
-  @include flex(column);
-  justify-content: space-evenly;
+  @include flex(column space-evenly);
   position: absolute;
   top: 6%;
   left: 20px;

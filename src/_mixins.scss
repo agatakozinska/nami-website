@@ -15,7 +15,7 @@
       flex-direction: column;
     }
 
-    @else if index(flex-start center flex-end, $value) {
+    @else if index(flex-start center flex-end space-around space-evenly, $value) {
       @if $justify-content {
         $align-items: $value;
       }
